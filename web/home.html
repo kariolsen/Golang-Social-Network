@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+	    <!-- ==============================================
+		Title and Meta Tags
+		=============================================== -->
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TypInBlog</title>
+		<meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta property="og:title" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:description" content="" />		
+		
+		<!-- ==============================================
+		Favicons
+		=============================================== --> 
+		<link rel="icon" href="assets/img/favicons/logo.png">
+		<link rel="apple-touch-icon" href="assets/img/favicons/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+		
+	    <!-- ==============================================
+		CSS
+		=============================================== -->
+        <link type="text/css" href="assets/css/demos/photo.css" rel="stylesheet" />
+				
+		<!-- ==============================================
+		Feauture Detection
+		=============================================== -->
+		<script src="assets/js/modernizr-custom.js"></script>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->	
+		
+  </head>
+
+<body>
+
+     <!-- ==============================================
+     Navigation Section
+     =============================================== -->  
+     <header class="tr-header">
+      <nav class="navbar navbar-default">
+       <div class="container-fluid">
+	    <div class="navbar-header">
+		 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		 </button>
+		 <a class="navbar-brand" href=""><i class="fab"></i> TypInBlog</a>
+		</div><!-- /.navbar-header -->
+		<div class="navbar-left">
+		 <div class="collapse navbar-collapse" id="navbar-collapse">
+		  <ul class="nav navbar-nav">
+		  </ul>
+		 </div>
+		</div><!-- /.navbar-left -->
+		<div class="navbar-right">                          
+		 <ul class="nav navbar-nav">
+		   <li>
+		   <div class="search-dashboard">
+               <form>
+                    <input id="search_content" placeholder="Search here" type="text">
+                    <button type="button" id="search_button" onclick="setSearchResults();"><i class="fa fa-search"></i></button>
+               </form>
+          </div>							
+		   </li>
+
+		   <li class="dropdown notification-list">
+		    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+			 <i class="fa fa-bell noti-icon"></i>
+			 <span id="notifications_num" class="badge badge-danger badge-pill noti-icon-badge"></span>
+			</a>
+			<div class="dropdown-menu dropdown-menu-right dropdown-lg">
+             
+			 <div class="dropdown-item noti-title">
+			  <h6 class="m-0">
+			   <span class="pull-right">
+			    <a style="cursor: pointer;" onclick="clearNotifications();"><small>Clear All</small></a> 
+			   </span>Notification
+			  </h6>
+			 </div>
+
+			<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 416.983px;">
+			  	<div class="slimscroll" style="max-height: 230px; overflow: hidden; width: auto; height: 416.983px;">
+			   		<div id="Slim"></div><!--/ .Slim-->
+			   		<div class="slimScrollBar" style="background: rgb(158, 165, 171) none repeat scroll 0% 0%; width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
+			   		<div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div>
+			  	</div><!--/ .slimscroll-->
+			</div><!--/ .slimScrollDiv-->
+			<a style="display: none;" href="photo_notifications.html" class="dropdown-item text-center notify-all">
+			  	View all <i class="fa fa-arrow-right"></i>
+			</a><!-- All-->
+            </div><!--/ dropdown-menu-->
+		   </li>
+
+		   <li class="dropdown notification-list" style="display: none;">
+			<a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+			 <i class="fa fa-envelope noti-icon"></i>
+			 <span class="badge badge-success badge-pill noti-icon-badge">6</span>
+			</a>
+			<div class="dropdown-menu dropdown-menu-right dropdown-lg dropdown-new">
+             <div class="dropdown-item noti-title">
+			  <h6 class="m-0">
+			   <span class="float-right">
+			    <a href="" class="text-dark"><small>Clear All</small></a> 
+			   </span>Chat
+			  </h6>
+			 </div>
+
+			 <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 416.983px;">
+			  <div class="slimscroll" style="max-height: 230px; overflow: hidden; width: auto; height: 416.983px;">
+			   <div id="Slim2">
+				<a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
+				 <div class="notify-icon"><img src="assets/img/users/1.jpg" class="img-responsive img-circle" alt=""> </div>
+				 <p class="notify-details">Cristina Pride</p>
+				 <p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
+				</a><!--/ dropdown-item-->
+				<a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
+				 <div class="notify-icon"><img src="assets/img/users/2.jpg" class="img-responsive img-circle" alt=""> </div>
+				 <p class="notify-details">Sam Garret</p>
+				 <p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
+				</a><!--/ dropdown-item-->
+				<a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
+				 <div class="notify-icon"><img src="assets/img/users/3.jpg" class="img-responsive img-circle" alt=""> </div>
+				 <p class="notify-details">Karen Robinson</p>
+				 <p class="text-muted font-13 mb-0 user-msg">Wow that's great</p>
+				</a><!--/ dropdown-item-->
+				<a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
+				 <div class="notify-icon"><img src="assets/img/users/4.jpg" class="img-responsive img-circle" alt=""> </div>
+				 <p class="notify-details">Sherry Marshall</p>
+				 <p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
+				</a><!--/ dropdown-item-->
+				<a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
+				 <div class="notify-icon"><img src="assets/img/users/5.jpg" class="img-responsive img-circle" alt=""> </div>
+				 <p class="notify-details">Shawn Millard</p>
+				 <p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
+				</a><!--/ dropdown-item-->
+			   </div><!--/ .Slim-->
+			   <div class="slimScrollBar" style="background: rgb(158, 165, 171) none repeat scroll 0% 0%; width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
+			   <div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div>
+			  </div><!--/ slimscroll-->
+			 </div> <!--/ slimScrollDiv-->
+			 <a href="photo_chat.html" class="dropdown-item text-center notify-all">
+			  View all <i class="fa fa-arrow-right"></i>
+			 </a>
+            </div><!--/ dropdown-menu-->
+		   </li>
+		  
+		 <li class="dropdown mega-avatar">
+		  <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" id="header_user_info"></a>
+		  <div class="dropdown-menu w dropdown-menu-scale pull-right">
+		   <a class="dropdown-item" href="/home" style="cursor: pointer;"><span>Home</span></a> 
+		   <a class="dropdown-item" href="/exploring" style="cursor: pointer;"><span>Explore</span></a> 
+		   <div class="dropdown-divider"></div>
+		   <a class="dropdown-item" href="/upload" style="cursor: pointer;"><span>Upload</span></a> 
+		   <a class="dropdown-item" href="/stories" style="cursor: pointer;"><span>Stories</span></a> 
+		   <a class="dropdown-item" href="/view_profile" style="cursor: pointer;">Profile</a> 
+		   <div class="dropdown-divider"></div>
+		   <a class="dropdown-item" onclick="logout();" style="cursor: pointer;">Sign out</a>
+		  </div>
+		 </li><!-- /navbar-item -->	
+		 
+		 </ul><!-- /.sign-in -->   
+		</div><!-- /.nav-right -->
+       </div><!-- /.container -->
+      </nav><!-- /.navbar -->
+     </header><!-- Page Header --> 
+  
+	 <!-- ==============================================
+	 Navbar Second Section
+	 =============================================== -->
+	<section id="home-navigation-bar" class="nav-sec"></section>	
+  
+	 <!-- ==============================================
+	 News Feed Section
+	 =============================================== --> 
+	 <section class="newsfeed">
+	  <div class="container-fluid">
+	   <div class="row">
+	    <div id="home_hashtag_post_board" class="col-lg-3"></div>
+	    <div id="home_posts" class="col-lg-6"></div>
+		
+		<div class="col-lg-3">
+         <div class="suggestion-box full-width">
+			<div id="hottest_users" class="suggestions-list"></div>
+		</div>	
+        <div class="trending-box">
+		 <div class="row">
+		  <div class="col-lg-12">
+		    <h4>Trending Photos</h4>
+		  </div>
+		 </div>
+        </div>
+
+        <div id="home_hottest_images" class="trending-box"></div>		
+		</div>
+	   </div>
+	  </div>
+	 </section>
+
+	<section id="home_comments_section"></section>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/base.js"></script>
+	<script src="assets/js/slider.js"></script>
+	<script src="assets/js/notify.js"></script>
+	<script src="assets/js/search.js"></script>
+	<script src="assets/js/hashtag.js"></script>
+	<script src="assets/js/like.js"></script>
+	<script src="assets/js/comment.js"></script>
+	<script src="assets/js/account.js"></script>
+	<script src="assets/js/follow.js"></script>
+	<script src="assets/js/post.js"></script>
+	<script src="assets/js/notifications.js"></script>
+	<script src="assets/plugins/slimscroll/jquery.slimscroll.js"></script>
+	<script type="text/javascript">
+	var my_id = "";
+	var my_name = "";
+	var my_avatar = "";
+	var hottest_images_board = ""
+	$.ajax({
+		url: "/basics",
+  		type: "GET",
+  		timeout: 0,
+		dataType: 'json',
+		success: function(r){
+			my_id = r.id;
+			my_name = r.username;
+			my_avatar = r.avatar;
+			$('#header_user_info').html(
+				$('#header_user_info').html() + '<span class="avatar w-32"><a href="/view_profile"><img src="users/'+my_id+'/profile/'+my_avatar+'" class="img-resonsive img-circle" width="25" height="25" alt="..."></a></span><span class="hidden-xs">'+my_name+'</span>'
+			);
+		},
+		error: function(e){console.log(e);}
+	}).done(function(){
+		loadHottestUser();
+		loadHottestImages();
+		loadHottestHashtags();
+
+		$.ajax({
+			url: "/api/explore",
+			type: "GET",
+	  		timeout: 0,
+			dataType: 'json',
+			success: function(r){
+				var post_main = "";
+				var comment_board = "";
+				$.each(r.posts, function(index, post){
+					post_main = post_main + '<div class="cardbox"><div class="cardbox-heading"><div class="dropdown pull-right"><button class="btn btn-secondary btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false"><em class="fa fa-ellipsis-h"></em></button><div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;"><a style="display: none;" class="dropdown-item" href="#">Hide post</a><a style="cursor: pointer;" class="dropdown-item" onclick="onlyFollowUser(' + "'" + post.post_id + "'" + ');">Stop following</a><a style="display: none;" class="dropdown-item" href="#">Report</a></div></div><div class="media m-0"><div class="d-flex mr-3"><a href="/view_users?name='+post.user_name+'"><img class="img-responsive img-circle" src="users/'+post.user_id+'/profile/'+post.avatar+'" alt="User"></a></div><div class="media-body"><p class="m-0">'+post.user_name+'</p><small><span>'+post.created_date+'</span></small></div></div></div><div class="cardbox-item"><a href="#home_comments_'+post.post_id+'" data-toggle="modal"><img style="margin: auto;" class="img-responsive" src="users/'+post.user_id+'/posts/'+post.post_id+'/'+post.images[0].image_name+'" alt="MaterialImg"></a></div><div class="cardbox-base"><ul>'
+					if (post.likes != 0){
+						for (i = 0; i < post.liked_users.length; i++) {
+	  						if (i >= 10) { break; }
+							post_main = post_main + '<li><a href="/view_users?name='+post.liked_users[i].user_name+'"><img src="users/'+post.liked_users[i].user_id+'/profile/'+post.liked_users[i].avatar+'" class="img-responsive img-circle" alt="User"></a></li>'
+						}
+					}
+					post_main = post_main + '</ul>'
+					post_main = post_main + '</div><div class="cardbox-like"><ul><li>'
+
+					if(post.liked_by_you == true){
+						post_main = post_main + '<a><i class="fa fa-heart liked_post" style="color: grey;" onclick="likeHomePost(this, ' + "'" + post.post_id + "'" + ');"></i></a><span style="color: grey;" class="likes_num liked_post"> '+post.likes+'</span>'
+					}else{
+						post_main = post_main + '<a><i class="fa fa-heart" style="color: grey;" onclick="likeHomePost(this, ' + "'" + post.post_id + "'" + ');"></i></a><span style="color: grey;" class="likes_num"> '+post.likes+'</span>'
+					}
+
+					post_main = post_main + '</li><li><a href="#home_comments_'+post.post_id+'" data-toggle="modal" title="" class="com"><i class="fa fa-comments"></i></a> <span id="home_post_'+post.post_id+'_comments_num" class="span-last"> '+post.comments_num+'</span></li></ul></div></div>'
+					comment_board = comment_board + '<div id="home_comments_'+post.post_id+'" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><div class="row"><div style="overflow: hidden; padding: 0" class="col-md-8 modal-image">'
+					
+					if (post.images.length > 1){
+						comment_board = comment_board + '<a id="pre-button" class="pre-page" onclick="plusSlides(home_comments_'+post.post_id+'.id, '+post.images.length+', 1)">&#10094;</a>'
+						comment_board = comment_board + '<a id="next-button" class="next-page" onclick="plusSlides(home_comments_'+post.post_id+'.id, '+post.images.length+', -1)">&#10095;</a>'
+					}
+					
+					comment_board = comment_board + '<ul class="mySlidesBox" style="width: '+post.images.length+'00%; display: flex; list-style: none; padding-left: 0; transition: 0.2s ease;">'
+					$.each(post.images, function(image_index, image){
+						comment_board = comment_board + '<li class="mySlides" style="width: 100%; background: rgba(0,0,0,0.8); border-radius: 0, 5px, 5px, 0;"><img style="height: auto !important; margin: auto;" class="img-responsive" src="users/'+post.user_id+'/posts/'+post.post_id+'/'+image.image_name+'" alt="Image"/></li>'
+					});
+					comment_board = comment_board + '</ul>'
+					
+					comment_board = comment_board + '</div><div style="border-left: solid 1px #f4f4f4;" class="col-md-4 modal-meta"><div class="modal-meta-top"><button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><div class="img-poster clearfix"><a href="/view_users?name='+post.user_name+'"><img class="img-responsive img-circle" src="users/'+post.user_id+'/profile/'+post.avatar+'" alt="Image"/></a><strong><a href="">'+post.user_name+'</a></strong><span>'+post.created_date+'</span><br/><p style="word-break: break-all">'+post.title+'</p><div style="word-break: break-all">'+labelEssentials(post.content)+'</div>'
+
+					if (my_id != post.user_id){
+						if (post.followed_by_you == true){
+							comment_board = comment_board + '<a style="float: right; cursor: pointer;" class="kafe kafe-btn-mint-small" onclick="followUser(this, ' + "'" + post.user_id + "'" + ');"><i class="fa fa-check-square"></i> Following</a>'
+						}else{
+							comment_board = comment_board + '<a style="float: right; cursor: pointer;" class="kafe kafe-btn-mint-small not-following" onclick="followUser(this, ' + "'" + post.user_id + "'" + ');"><i class="fa"></i> Follow</a>'
+						}
+					}					
+					
+					comment_board = comment_board + '</div>'
+					
+					comment_board = comment_board + loadComments(post.comments, true, post.allow_comments);
+
+					comment_board = comment_board +'<div class="modal-meta-bottom"><ul><li><span class="thumb-xs"><img class="img-responsive img-circle" src="users/'+my_id+'/profile/'+my_avatar+'" alt="..."></span><div style="display: flex;" class="comment-body"><input style="margin-right: 10px;" class="form-control input-sm post-comment-input" type="text" placeholder="Write your comment..."><a style="cursor: pointer;" onclick="publishComments(this, ' + "'" + post.post_id + "'" + ', false, '+ post.allow_comments +' ); incrementCommentsNum(' + "'" + post.post_id + "'" + ');" class="kafe kafe-btn-mint-small"><i class="fa"></i> Submit</a></div></li></ul></div></div></div></div></div></div></div></div>'
+				});
+				if (post_main == ""){
+					post_main = "<p align='center'>No posts to show</p>";
+				}
+				$('#home_posts').html(
+					$('#home_posts').html() + post_main
+				);
+				$('#home_comments_section').html(
+					$('#home_comments_section').html() + comment_board
+				);
+			},
+			error: function(e){console.log(e);}
+		});
+	});
+
+	function loadHottestImages(){
+		$.ajax({
+			url: "/api/images/popular",
+  			type: "GET",
+  			timeout: 0,
+			dataType: 'json',
+			success: function(r){
+				$.each(r.images, function(index, image){
+					if ((index + 1)%2 == 1){
+						hottest_images_board = hottest_images_board + '<div class="row"><div class="col-lg-6"><a><img src="users/'+image.user_id+'/posts/'+image.post_id+'/'+image.image_name+'" class="img-responsive" alt="Image"/></a></div>'
+					}else if ((index + 1)%2 == 0 || index + 1 == posts_length){
+						hottest_images_board = hottest_images_board + '<div class="col-lg-6"><a><img src="users/'+image.user_id+'/posts/'+image.post_id+'/'+image.image_name+'" class="img-responsive" alt="Image"/></a></div></div>'
+					}else{
+						hottest_images_board = hottest_images_board + '<div class="col-lg-6"><a><img src="users/'+image.user_id+'/posts/'+image.post_id+'/'+image.image_name+'" class="img-responsive" alt="Image"/></a></div>'
+					}
+				});
+				$('#home_hottest_images').html($('#home_hottest_images').html() + hottest_images_board);
+			},
+			error: function(e){console.log(e);}
+		});
+	}
+
+	function loadHottestHashtags(){
+		$.ajax({
+			url: "/api/hashtag/popular",
+  			type: "GET",
+  			timeout: 0,
+			dataType: 'json',
+			success: function(r){
+				$.each(r.hashtags, function(index,hashtag){
+					showOnePostsPerHashtag(hashtag.hashtag_name, hashtag.hashtag_id);
+				});
+			},
+			error: function(e){console.log(e);}
+		});
+	}
+
+	function loadHottestUser(){
+		$('#hottest_users').html("");
+		$.ajax({
+			url: "/api/user/popular",
+	  		type: "GET",
+	  		timeout: 0,
+			dataType: 'json',
+			success: function(r){
+				$.each(r.users, function(index,user){
+					$('#hottest_users').html(
+						$('#hottest_users').html() + '<div class="suggestion-body"><a href="/view_users?name='+user.name+'"><img class="img-responsive img-circle" src="users/'+user.id+'/profile/'+user.avatar+'" alt="Image"></a><div class="name-box"><h4>'+user.name+'</h4><span>@'+user.name+'</span></div><span style="border: none;" onclick="followPopularUser(' + "'" + user.id + "'" + ');"><i class="fa fa-plus follow-plus-effect"></i></span></div>'
+					);
+				});
+			},
+			error: function(e){console.log(e);}
+		});
+	}
+
+	$('#home-navigation-bar').html(
+		$('#home-navigation-bar').html()+'<div class="d-flex justify-content-between"><div class="p-2 nav-icon-lg mint-green"><a class="nav-icon" href="/home"><em class="fa fa-home"></em><span>Home</span></a></div><div class="p-2 nav-icon-lg clean-black"><a class="nav-icon" href="/exploring"><em class="fa fa-crosshairs"></em><span>Explore</span></a></div><div class="p-2 nav-icon-lg dark-black"><a class="nav-icon" href="/upload"><em class="fab fa-instagram"></em><span>Upload</span></a></div><div class="p-2 nav-icon-lg clean-black"><a class="nav-icon" href="/stories"><em class="fa fa-align-left"></em><span>Stories</span></a></div><div class="p-2 nav-icon-lg dark-black"><a class="nav-icon" href="/view_profile"><em class="fa fa-user"></em><span>Profile</span></a></div></div>'
+	);
+
+	function followPopularUser(user_id){
+		onlyFollowUser(user_id);
+		setTimeout(function(){loadHottestUser();}, 600);
+	}
+
+	function incrementCommentsNum(post_id){
+		$("#home_post_" + post_id + "_comments_num").text(
+   	 		parseInt($("#home_post_" + post_id + "_comments_num").text()) + 1
+		);
+	}
+
+	$(document).ready(function(){
+		$('#Slim,#Slim2').slimScroll({
+	        height:"auto",
+			position: 'right',
+			railVisible: true,
+			alwaysVisible: true,
+			size:"8px",
+		});
+
+		loadNotifications();
+	});		
+	</script>
+
+  </body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+	    <!-- ==============================================
+		Title and Meta Tags
+		=============================================== -->
+		<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TypInBlog</title>
+		<meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta property="og:title" content="" />
+        <meta property="og:url" content="" />
+        <meta property="og:description" content="" />		
+		
+		<!-- ==============================================
+		Favicons
+		=============================================== --> 
+		<link rel="icon" href="assets/img/favicons/logo.png">
+		<link rel="apple-touch-icon" href="assets/img/favicons/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+		
+	    <!-- ==============================================
+		CSS
+		=============================================== -->
+        <link type="text/css" href="assets/css/demos/photo.css" rel="stylesheet" />
+				
+		<!-- ==============================================
+		Feauture Detection
+		=============================================== -->
+		<script src="assets/js/modernizr-custom.js"></script>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->	
+		
+  </head>
+
+<body>
+
+    <header class="tr-header">
+      	<nav class="navbar navbar-default">
+       		<div class="container-fluid">
+	    		<div class="navbar-header">
+		 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+		  				<span class="sr-only">Toggle navigation</span>
+		  				<span class="icon-bar"></span>
+		  				<span class="icon-bar"></span>
+		  				<span class="icon-bar"></span>
+		 			</button>
+		 			<a class="navbar-brand" href=""><i class="fab"></i> TypInBlog</a>
+				</div><!-- /.navbar-header -->
+				<div class="navbar-left">
+		 			<div class="collapse navbar-collapse" id="navbar-collapse">
+		 	 			<ul class="nav navbar-nav"></ul>
+		 		</div>
+			</div><!-- /.navbar-left -->
+		<div class="navbar-right">                          
+		 	<ul class="nav navbar-nav">
+		   		<li>
+		   			<div class="search-dashboard">
+            		   <form>
+            		        <input id="search_content" placeholder="Search here" type="text">
+            		        <button type="button" id="search_button" onclick="setSearchResults();"><i class="fa fa-search"></i></button>
+            		   </form>
+          			</div>							
+		   		</li>
+
+		   <li class="dropdown notification-list">
+		    	<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+			 		<i class="fa fa-bell noti-icon"></i>
+			 		<span id="notifications_num" class="badge badge-danger badge-pill noti-icon-badge"></span>
+				</a>
+				<div class="dropdown-menu dropdown-menu-right dropdown-lg">
+			 		<div class="dropdown-item noti-title">
+			  			<h6 class="m-0">
+			   			<span class="pull-right">
+			    			<a style="cursor: pointer;" onclick="clearNotifications();"><small>Clear All</small></a> 
+			   			</span>Notification
+			  			</h6>
+			 		</div>
+
+			 	<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 416.983px;">
+			  		<div class="slimscroll" style="max-height: 230px; overflow: hidden; width: auto; height: 416.983px;">
+			   			<div id="Slim"></div><!--/ .Slim-->
+			   		<div class="slimScrollBar" style="background: rgb(158, 165, 171) none repeat scroll 0% 0%; width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
+			   		<div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div>
+			  	</div><!--/ .slimscroll-->
+			</div><!--/ .slimScrollDiv-->
+			<a style="display: none;"  href="photo_notifications.html" class="dropdown-item text-center notify-all">
+			  	View all <i class="fa fa-arrow-right"></i>
+			</a><!-- All-->
+            </div><!--/ dropdown-menu-->
+			</li>
+
+		   	<li class="dropdown notification-list" style="display: none;">
+				<a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+			 	<i class="fa fa-envelope noti-icon"></i>
+			 	<span class="badge badge-success badge-pill noti-icon-badge">6</span>
+				</a>
+				<div class="dropdown-menu dropdown-menu-right dropdown-lg dropdown-new">
+             		<div class="dropdown-item noti-title">
+			  			<h6 class="m-0">
+			   			<span class="float-right">
+			    			<a href="" class="text-dark"><small>Clear All</small></a> 
+			   			</span>Chat
+			  			</h6>
+			 		</div>
+
+			 		<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 416.983px;">
+			  			<div class="slimscroll" style="max-height: 230px; overflow: hidden; width: auto; height: 416.983px;">
+			   				<div id="Slim2">
+								<a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
+				 					<div class="notify-icon"><img src="assets/img/users/1.jpg" class="img-responsive img-circle" alt=""> </div>
+				 					<p class="notify-details">Cristina Pride</p>
+				 					<p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
+								</a><!--/ dropdown-item-->
+								<a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
+				 					<div class="notify-icon"><img src="assets/img/users/2.jpg" class="img-responsive img-circle" alt=""> </div>
+				 					<p class="notify-details">Sam Garret</p>
+				 					<p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
+								</a><!--/ dropdown-item-->
+								<a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
+				 					<div class="notify-icon"><img src="assets/img/users/3.jpg" class="img-responsive img-circle" alt=""> </div>
+				 					<p class="notify-details">Karen Robinson</p>
+				 					<p class="text-muted font-13 mb-0 user-msg">Wow that's great</p>
+								</a><!--/ dropdown-item-->
+								<a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
+				 					<div class="notify-icon"><img src="assets/img/users/4.jpg" class="img-responsive img-circle" alt=""> </div>
+				 					<p class="notify-details">Sherry Marshall</p>
+				 					<p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
+								</a><!--/ dropdown-item-->
+								<a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
+				 					<div class="notify-icon"><img src="assets/img/users/5.jpg" class="img-responsive img-circle" alt=""> </div>
+				 					<p class="notify-details">Shawn Millard</p>
+				 					<p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
+								</a><!--/ dropdown-item-->
+			   				</div><!--/ .Slim-->
+			   			<div class="slimScrollBar" style="background: rgb(158, 165, 171) none repeat scroll 0% 0%; width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
+			   			<div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div>
+			  		</div><!--/ slimscroll-->
+			 	</div> <!--/ slimScrollDiv-->
+			 	<a href="photo_chat.html" class="dropdown-item text-center notify-all">
+			  		View all <i class="fa fa-arrow-right"></i>
+			 	</a>
+            	</div><!--/ dropdown-menu-->
+		   </li>
+		  
+				<li class="dropdown mega-avatar">
+				  	<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" id="header_user_info"></a>
+				  	<div class="dropdown-menu w dropdown-menu-scale pull-right">
+				   		<a class="dropdown-item" href="/home" style="cursor: pointer;"><span>Home</span></a> 
+				   		<a class="dropdown-item" href="/exploring" style="cursor: pointer;"><span>Explore</span></a> 
+				   		<div class="dropdown-divider"></div>
+				   		<a class="dropdown-item" href="/upload" style="cursor: pointer;"><span>Upload</span></a> 
+				   		<a class="dropdown-item" href="/stories" style="cursor: pointer;"><span>Stories</span></a> 
+				   		<a class="dropdown-item" href="/view_profile" style="cursor: pointer;">Profile</a> 
+				   		<div class="dropdown-divider"></div>
+				   		<a class="dropdown-item" onclick="logout();" style="cursor: pointer;">Sign out</a>
+				  	</div>
+				</li><!-- /navbar-item -->	
+		 
+		 </ul><!-- /.sign-in -->   
+		</div><!-- /.nav-right -->
+       </div><!-- /.container -->
+      </nav><!-- /.navbar -->
+     </header>
+  
+	<section id="profile-navigation-bar" class="nav-sec"></section>	
+  
+	 <!-- ==============================================
+	 News Feed Section
+	 =============================================== --> 
+	<section class="profile">
+	  	<div class="container-fluid">
+	  		<div id="profile_bg" class="row"></div><!--/ row-->	
+	  	</div><!--/ container -->
+	</section><!--/ profile -->
+  
+	<section id="profile_user" class="user-profile"></section>
+	 <!-- ==============================================
+	 User Profile Section
+	 =============================================== --> 
+	<section class="details">
+	  	<div class="container">
+	   		<div class="row">
+	    		<div class="col-lg-12">
+          			<div class="details-box row">
+		   				<div class="col-lg-9">
+           					<div class="content-box">
+		     					<h4 id="profile_user_name"><i class="fa fa-check"></i></h4>
+             					<p id="profile_quote"></p>
+			 					<small><span id="profile_email"></span></small>
+           					</div><!--/ media -->
+		   				</div> 
+		   				<div class="col-lg-3">
+           					<div class="follow-box" id="edit_profile_box" data-toggle="modal" data-target="#edit_profile_modal"></div>
+		   				</div>
+		   			</div>
+          		</div><!--/ details-box -->
+			</div>
+	   	</div>
+	  </div><!--/ container -->
+	</section><!--/ profile -->
+
+	 <!-- ==============================================
+	 Home Menu Section
+	 =============================================== -->	
+    <section class="home-menu">
+      	<div class="container">
+       		<div class="row">
+        		<div class="menu-category">
+        	 		<ul class="menu">
+          				<li class="current-menu-item"><a href="">Posts <span id="profile_posts_num"></span></a></li>
+          				<li><a href="/followers">Followers <span id="profile_followers_num" ></span></a></li>
+          				<li><a href="/followings">Following <span id="profile_followings_num" ></span></a></li>
+         			</ul>
+				</div>
+	   		</div>
+      	</div>
+    </section>
+
+
+	<div id="edit_profile_modal" class="modal fade"></div>
+
+
+	 <!-- ==============================================
+	 News Feed Section
+	 =============================================== --> 
+	<section class="newsfeed">
+	  	<div class="container" id="profile_main">
+	  	</div><!--/ container -->
+	</section><!--/ newsfeed -->
+  
+	<section id="profile_comments_section"></section>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/notify.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/base.js"></script>
+	<script src="assets/js/slider.js"></script>
+	<script src="assets/js/search.js"></script>
+	<script src="assets/js/like.js"></script>
+	<script src="assets/js/comment.js"></script>
+	<script src="assets/js/account.js"></script>
+	<script src="assets/js/post.js"></script>
+	<script src="assets/js/profile.js"></script>
+	<script src="assets/js/notifications.js"></script>
+	<script src="assets/plugins/slimscroll/jquery.slimscroll.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script type='text/javascript'>
+		var id = "";
+		var name = "";
+		var p_avatar = "";
+		var posts_num = "";
+		var followers_num = "";
+		var followings_num = "";
+		var email = "";
+		var quote = "";
+		var posts = "";
+		var profile_bg_content = "";
+		$.ajax({
+			url: "/basics",
+  			type: "GET",
+  			timeout: 0,
+			dataType: 'json',
+			success: function(r){
+				id = r.id;
+				name = r.username;
+				p_avatar = r.avatar;
+				$('#header_user_info').html(
+					$('#header_user_info').html() + '<span class="avatar w-32"><a href="/view_profile"><img src="users/'+id+'/profile/'+p_avatar+'" class="img-resonsive img-circle" width="25" height="25" alt="..."></a></span><span class="hidden-xs">'+name+'</span>'
+				);
+			},
+			error: function(e){console.log(e);}
+		}).done(function(){
+			$('#profile_user_name').html(name);
+			$.ajax({
+				url:"/api/profile/"+id.toString(),
+				type: "GET",
+  				timeout: 0,
+				dataType: 'json',
+				success: function(r){
+					email = r.user['email'];
+					quote = r.user['quote'];
+					followers_num = r.followers;
+					followings_num = r.followings;
+					posts_num = r.posts.length;
+					posts = r.posts;
+					$('#profile_followers_num').html(followers_num);
+					$('#profile_followings_num').html(followings_num);
+					$('#profile_posts_num').html(posts_num);
+					$('#profile_email').html(email);
+					$('#profile_quote').html(quote);
+					$('#profile_user').html(
+						$('#profile_user').html() + '<div class="container-fluid"><div class="row"><div class="col-lg-12"><div class="post-content"><div class="author-post text-center"><a style="cursor: pointer;"><img class="img-fluid img-circle" src="users/'+id+'/profile/'+p_avatar+'" alt="Image"></a></div></div></div></div></div>'
+					);
+					$('#edit_profile_box').html(
+						$('#edit_profile_box').html() + '<a style="cursor: pointer;" class="kafe-btn kafe-btn-mint" "><i class="fa fa-edit"></i> Edit Profile</a>'
+					);
+					$('#edit_profile_modal').html(
+						$('#edit_profile_modal').html() + '<div class="modal-dialog" style="width: 60%;"><div class="modal-content"><div class="modal-body"><button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><h4 style="text-align: center;">Edit Profile Information</h4><form class="form-signin" style="margin: auto;"><div class="form-group"><p>Edit Username: </p><input style="margin-bottom: 30px;" id="edit_name" name="username" type="text" class="form-control" placeholder="Username" value=' + "'" + name + "'" + '><p>Edit Quote: </p><input style="margin-bottom: 30px;" id="edit_quote" name="quote" type="text" class="form-control" placeholder="Quote" value=' + "'" + quote + "'" + '><p>Edit Email: </p><input style="margin-bottom: 30px;" id="edit_email" name="email" type="text" class="form-control" placeholder="Email" value=' + "'" + email + "'" + '><p>Edit Avatar: </p><input style="margin-bottom: 30px;" id="edit_avatar" onchange="show_new_avatar(this.files[0]);" type="file" accept="image/*"/><div id="view_new_avatar"></div></div></form><p id="edit_profile_err_message" style="text-align: center; color: red;"></p><div style="text-align: center;"><button id="edit_profile_button" onclick="edit_profile_info();" class="kafe-btn kafe-btn-mint">Finish Editing</button></div></div></div></div>'
+					);
+					if (r.profile_bg_images.length < 5){
+						if (r.profile_bg_images.length == 0){
+							profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+							profile_bg_content = profile_bg_content + '<div class="col-lg-6"><div class="profilebox-large hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+							profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox" style="background: linear-gradient( rgba(34,34,34,0.6), rgba(34,34,34,0.6)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+						}else if(r.profile_bg_images.length == 1){
+							profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[0].post_id+'/'+r.profile_bg_images[0].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+							profile_bg_content = profile_bg_content + '<div class="col-lg-6"><div class="profilebox-large hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+							profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox" style="background: linear-gradient( rgba(34,34,34,0.6), rgba(34,34,34,0.6)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'	
+						}else if(r.profile_bg_images.length == 2){
+							profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[0].post_id+'/'+r.profile_bg_images[0].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[1].post_id+'/'+r.profile_bg_images[1].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+							profile_bg_content = profile_bg_content + '<div class="col-lg-6"><div class="profilebox-large hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+							profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox" style="background: linear-gradient( rgba(34,34,34,0.6), rgba(34,34,34,0.6)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'	
+						}else if(r.profile_bg_images.length == 3){
+							profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[0].post_id+'/'+r.profile_bg_images[0].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[1].post_id+'/'+r.profile_bg_images[1].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+							profile_bg_content = profile_bg_content + '<div class="col-lg-6"><div class="profilebox-large hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[2].post_id+'/'+r.profile_bg_images[2].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+							profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox" style="background: linear-gradient( rgba(34,34,34,0.6), rgba(34,34,34,0.6)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+						}else if(r.profile_bg_images.length == 4){
+							profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[0].post_id+'/'+r.profile_bg_images[0].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[1].post_id+'/'+r.profile_bg_images[1].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+							profile_bg_content = profile_bg_content + '<div class="col-lg-6"><div class="profilebox-large hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[2].post_id+'/'+r.profile_bg_images[2].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+							profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[3].post_id+'/'+r.profile_bg_images[3].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox" style="background: linear-gradient( rgba(34,34,34,0.6), rgba(34,34,34,0.6)), url(assets/img/posts/black.jpg) no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+						}
+						$('#profile_bg').html(
+							$('#profile_bg').html() + profile_bg_content
+						);
+					}else{
+						profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[0].post_id+'/'+r.profile_bg_images[0].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[1].post_id+'/'+r.profile_bg_images[1].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+						profile_bg_content = profile_bg_content + '<div class="col-lg-6"><div class="profilebox-large hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[2].post_id+'/'+r.profile_bg_images[2].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+						profile_bg_content = profile_bg_content + '<div class="col-lg-3"><div class="profilebox hidden-xs hidden-sm" style="background: linear-gradient( rgba(34,34,34,0.45), rgba(34,34,34,0.45)), url(users/'+id+'/posts/'+r.profile_bg_images[3].post_id+'/'+r.profile_bg_images[3].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div><div class="profilebox" style="background: linear-gradient( rgba(34,34,34,0.6), rgba(34,34,34,0.6)), url(users/'+id+'/posts/'+r.profile_bg_images[4].post_id+'/'+r.profile_bg_images[4].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"></div></div>'
+
+						$('#profile_bg').html(
+							$('#profile_bg').html() + profile_bg_content
+						);
+					}
+				},
+				error: function(e){console.log(e);}
+			}).done(function(){
+				var post_board = "";
+				var comment_board = "";
+				var posts_length = posts.length;
+				$.each(posts, function(index,post){
+					if ((index + 1)%3 == 1){
+						post_board = post_board + '<div class="row"><div class="col-lg-4"><a href="#profile_comments_'+post.post_id+'" data-toggle="modal"><div class="explorebox" style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url(users/'+id+'/posts/'+post.post_id+'/'+post.images[0].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"><div class="explore-top"><div class="explore-like">'
+						
+						if(post.liked_by_you == true){
+							post_board = post_board + '<i style="color: grey;" class="fa fa-heart liked_post" onclick="likePost(this, ' + "'" + post.post_id + "'" + ');"></i> <span style="color: grey;" class="likes_num liked_post">'+post.likes+'</span>'
+						}else{
+							post_board = post_board + '<i style="color: grey;" class="fa fa-heart" onclick="likePost(this, ' + "'" + post.post_id + "'" + ');"></i> <span style="color: grey;" class="likes_num">'+post.likes+'</span>'
+						}
+						
+						post_board = post_board + '</div><div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div></div></div></a></div>'
+					}else if ((index + 1)%3 == 0 || index + 1 == posts_length){
+						post_board = post_board + '<div class="col-lg-4"><a href="#profile_comments_'+post.post_id+'" data-toggle="modal"><div class="explorebox" style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url(users/'+id+'/posts/'+post.post_id+'/'+post.images[0].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"><div class="explore-top"><div class="explore-like">'
+						
+						if(post.liked_by_you == true){
+							post_board = post_board + '<i style="color: grey;" class="fa fa-heart liked_post" onclick="likePost(this, ' + "'" + post.post_id + "'" + ');"></i> <span style="color: grey;" class="likes_num liked_post">'+post.likes+'</span>'
+						}else{
+							post_board = post_board + '<i style="color: grey;" class="fa fa-heart" onclick="likePost(this, ' + "'" + post.post_id + "'" + ');"></i> <span style="color: grey;" class="likes_num">'+post.likes+'</span>'
+						}
+						
+						post_board = post_board + '</div><div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div></div></div></a></div></div>'
+					}else{
+						post_board = post_board + '<div class="col-lg-4"><a href="#profile_comments_'+post.post_id+'" data-toggle="modal"><div class="explorebox" style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url(users/'+id+'/posts/'+post.post_id+'/'+post.images[0].image_name+') no-repeat;background-size: cover;background-position: center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;"><div class="explore-top"><div class="explore-like">'
+						
+						if(post.liked_by_you == true){
+							post_board = post_board + '<i style="color: grey;" class="fa fa-heart liked_post" onclick="likePost(this, ' + "'" + post.post_id + "'" + ');"></i> <span style="color: grey;" class="likes_num liked_post">'+post.likes+'</span>'
+						}else{
+							post_board = post_board + '<i style="color: grey;" class="fa fa-heart" onclick="likePost(this, ' + "'" + post.post_id + "'" + ');"></i> <span style="color: grey;" class="likes_num">'+post.likes+'</span>'
+						}
+						
+						post_board = post_board + '</div><div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div></div></div></a></div>'
+					}
+					comment_board = comment_board + '<div id="profile_comments_'+post.post_id+'" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><div class="row"><div style="overflow: hidden; padding: 0" class="col-md-8 modal-image">'
+					
+					if (post.images.length > 1){
+						comment_board = comment_board + '<a id="pre-button" class="pre-page" onclick="plusSlides(profile_comments_'+post.post_id+'.id, '+post.images.length+', 1)">&#10094;</a>'
+						comment_board = comment_board + '<a id="next-button" class="next-page" onclick="plusSlides(profile_comments_'+post.post_id+'.id, '+post.images.length+', -1)">&#10095;</a>'
+					}
+					
+					comment_board = comment_board + '<ul class="mySlidesBox" style="width: '+post.images.length+'00%; display: flex; list-style: none; padding-left: 0; transition: 0.2s ease;">'
+					$.each(post.images, function(image_index, image){
+						comment_board = comment_board + '<li class="mySlides" style="width: 100%; background: rgba(0,0,0,0.8); border-radius: 0, 5px, 5px, 0;"><img style="height: auto !important; margin: auto;" class="img-responsive" src="users/'+id+'/posts/'+post.post_id+'/'+image.image_name+'" alt="Image"/></li>'
+					});
+					comment_board = comment_board + '</ul>'
+					comment_board = comment_board + '</div><div style="border-left: solid 1px #f4f4f4;" class="col-md-4 modal-meta"><div class="modal-meta-top"><button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><div class="img-poster clearfix"><a href=""><img class="img-responsive img-circle" src="users/'+post.created_by+'/profile/'+post.avatar+'" alt="Image"/></a><strong><a href="">'+name+'</a></strong><span>'+post.created_date+'</span><br/><p style="word-break: break-all;">'+post.title+'</p><div style="word-break: break-all">'+labelEssentials(post.content)+'</div></div>'
+					
+					comment_board = comment_board + loadComments(post.comments, true, post.allow_comments);
+
+					comment_board = comment_board +'<div class="modal-meta-bottom"><ul><li><span class="thumb-xs"><img class="img-responsive img-circle" src="users/'+id+'/profile/'+p_avatar+'" alt="..."></span><div style="display: flex;"  class="comment-body"><input style="margin-right: 10px;" class="form-control input-sm post-comment-input" type="text" placeholder="Write your comment..."><a style="cursor: pointer;" onclick="publishComments(this, ' + "'" + post.post_id + "'" + ', false, '+ post.allow_comments +' );" class="kafe kafe-btn-mint-small"><i class="fa"></i> Submit</a></div></li></ul></div></div></div></div></div></div></div></div>'
+				});
+				$('#profile_main').html(
+					$('#profile_main').html() + post_board
+				);
+				$('#profile_comments_section').html(
+					$('#profile_comments_section').html() + comment_board
+				);
+			});
+		});
+
+		$('#profile-navigation-bar').html(
+			$('#profile-navigation-bar').html()+'<div class="d-flex justify-content-between"><div class="p-2 nav-icon-lg dark-black"><a class="nav-icon" href="/home"><em class="fa fa-home"></em><span>Home</span></a></div><div class="p-2 nav-icon-lg clean-black"><a class="nav-icon" href="/exploring"><em class="fa fa-crosshairs"></em><span>Explore</span></a></div><div class="p-2 nav-icon-lg dark-black"><a class="nav-icon" href="/upload"><em class="fab fa-instagram"></em><span>Upload</span></a></div><div class="p-2 nav-icon-lg clean-black"><a class="nav-icon" href="/stories"><em class="fa fa-align-left"></em><span>Stories</span></a></div><div class="p-2 nav-icon-lg mint-green"><a class="nav-icon" href="/view_profile"><em class="fa fa-user"></em><span>Profile</span></a></div></div>'
+		);
+
+		function show_new_avatar(file_0){
+			var new_avatar = file_0;
+			var oFReader = new FileReader();
+			oFReader.readAsDataURL(new_avatar);
+			oFReader.onload = function(oFREvent) {
+				$('#view_new_avatar').html(
+					$('#view_new_avatar').html() + '<img style="width: 100%; border-radius: 50% 50% 50% 50%;" src='+oFREvent.target.result+'><p>'+new_avatar.name+'</p>'
+				);
+    		};
+		}
+
+		function edit_profile_info(){
+			var new_name = $("#edit_name").val();
+			var new_email = $("#edit_email").val();
+			var new_quote = $("#edit_quote").val();
+			var new_avatar = $("#edit_avatar")[0].files[0];
+			if (new_name == ""){
+				$("#edit_name").addClass('error_input_box');
+				$('#edit_profile_err_message').html($('#edit_profile_err_message').html() + 'Username cannot be empty </br>');
+				setTimeout(function(){$('#edit_profile_err_message').html(""); $("#edit_name").removeClass('error_input_box');}, 2000);
+			}else if(new_email == ""){
+				$("#edit_email").addClass('error_input_box');
+				$('#edit_profile_err_message').html($('#edit_profile_err_message').html() + 'Email cannot be empty </br>');
+				setTimeout(function(){$('#edit_profile_err_message').html(""); $("#edit_email").removeClass('error_input_box');}, 2000);
+			}else if(new_quote == ""){
+				$("#edit_quote").addClass('error_input_box');
+				$('#edit_profile_err_message').html($('#edit_profile_err_message').html() + 'Quote cannot be empty </br>');
+				setTimeout(function(){$('#edit_profile_err_message').html(""); $("#edit_quote").removeClass('error_input_box');}, 2000);
+			}else{
+				if(new_avatar == undefined || new_avatar == ""){
+					edit_profile_data(new_name, new_email, new_quote);
+				}else{
+					edit_profile_data_and_avatar(new_name, new_email, new_quote, new_avatar);
+				}
+			}
+		}
+
+		$(document).ready(function(){
+			$('#Slim,#Slim2').slimScroll({
+	        	height:"auto",
+				position: 'right',
+				railVisible: true,
+				alwaysVisible: true,
+				size:"8px",
+			});	
+
+			loadNotifications();
+		});		
+	</script>
+
+  </body>
+</html>
