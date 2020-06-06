@@ -20,6 +20,7 @@ This is the code my social network "TypInBlog", the backend API is made in Golan
 
 Below is the database design: 
 
+![Architecture Desgin for Social Network](readmeImgs/SN.png)
 ![Database Desgin for Social Network](readmeImgs/SocialNet_DB.jpg)
 
 ## Tables
